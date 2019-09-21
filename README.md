@@ -4,6 +4,24 @@ ZoBo helps you bootstrap your VyOS Zone-Based Firewall through an easy config fi
 
 ## Running
 
+### Docker
+```sh
+docker run --rm -it -v $(pwd)/zones.yaml:/app/zones.yaml ebrithil/zobo
+```
+
+### From Source
+
+*Note*: You need to have the [Dotnet Core SDK](https://dotnet.microsoft.com/download) installed!
+
+```sh
+git clone https://github.com/Ebrithil95/zobo.git
+cd zobo
+dotnet restore
+dotnet run
+```
+
+## Config Syntax
+
 TODO
 
 ## Example
@@ -173,6 +191,10 @@ set firewall name 'mgmt-lan' rule 50 protocol tcp
 set firewall name 'mgmt-lan' rule 50 destination port 22
 set zone-policy zone lan from mgmt firewall name mgmt-lan
 ```
+
+## Versioning
+
+We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/Ebrithil95/zobo/tags).
 
 ## License
 
