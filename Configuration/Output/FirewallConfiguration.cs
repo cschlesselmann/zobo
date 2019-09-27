@@ -15,6 +15,8 @@ namespace zobo.Configuration.Output
 
         private readonly CLIOptions options;
 
+        private UInt16 nextPort = (UInt16)RuleNumberMapping.CustomRuleRangeStart;
+
         public FirewallConfiguration(FirewallName name, CLIOptions options, EAction defaultAction = EAction.Drop, bool enableDefaultLog = true)
         {
             this.name = name;
@@ -53,7 +55,6 @@ namespace zobo.Configuration.Output
             }
             else
             {
-                UInt16 nextPort = (UInt16)RuleNumberMapping.CustomRuleRangeStart;
                 ports?.ForEach(port =>
                 {
                     EProtocol protocol = EProtocol.TCP;
