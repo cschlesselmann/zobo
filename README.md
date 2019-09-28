@@ -36,7 +36,7 @@ zones:
 
 definitions:
   wan:
-    interface: "eth0"
+    interface: ["eth0"]
     description: "WAN Network"
     allow_ping_to: "local"
     allow_traffic_to:
@@ -48,7 +48,7 @@ definitions:
     allow_traffic_to: "*"
   lan:
     description: "LAN Network"
-    interface: "eth1"
+    interface: ["eth1"]
     allow_traffic_to:
       local:
         # Whitelist DNS
@@ -56,7 +56,7 @@ definitions:
       wan:
   mgmt:
     description: "Management Network"
-    interface: "eth1.1"
+    interface: ["eth1.1"]
     allow_ping_to: "*"
     allow_traffic_to:
       # Allow SSH to any zone

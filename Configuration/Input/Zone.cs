@@ -1,4 +1,5 @@
 using Newtonsoft.Json;
+using System.Collections.Generic;
 
 namespace zobo.Configuration.Input
 {
@@ -6,7 +7,7 @@ namespace zobo.Configuration.Input
     {
         public static readonly Zone DefaultZone = new Zone();
 
-        public string Interface { get; private set; }
+        public List<string> Interface { get; private set; }
         public string Description { get; private set; }
         public bool IsLocalZone { get; private set; }
 
@@ -25,7 +26,7 @@ namespace zobo.Configuration.Input
         }
 
         [JsonConstructor]
-        public Zone([JsonProperty("interface")] string iface, string description, bool isLocalZone, TargetDefinition allowPingTo, TargetDefinition allowTrafficTo, ZoneDefaultAction defaultAction)
+        public Zone([JsonProperty("interface")] List<string> iface, string description, bool isLocalZone, TargetDefinition allowPingTo, TargetDefinition allowTrafficTo, ZoneDefaultAction defaultAction)
         {
             Interface = iface;
             Description = description;

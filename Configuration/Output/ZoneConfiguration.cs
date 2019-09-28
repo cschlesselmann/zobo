@@ -27,7 +27,9 @@ namespace zobo.Configuration.Output
             }
             if (zone.Interface != null)
             {
-                sb.AppendLine($"set zone-policy zone '{name}' interface '{zone.Interface}'");
+                foreach (var iface in zone.Interface) {
+                    sb.AppendLine($"set zone-policy zone '{name}' interface '{iface}'");
+                }
             }
             if (zone.IsLocalZone)
             {
