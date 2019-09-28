@@ -10,18 +10,16 @@ namespace zobo.Configuration.Output
     {
         public readonly FirewallName name;
         private EAction defaultAction;
-        private bool enableDefaultLog;
         private readonly Dictionary<UInt16, FirewallRule> FirewallRules = new Dictionary<UInt16, FirewallRule>();
 
         private readonly CLIOptions options;
 
         private UInt16 nextPort = (UInt16)RuleNumberMapping.CustomRuleRangeStart;
 
-        public FirewallConfiguration(FirewallName name, CLIOptions options, EAction defaultAction = EAction.Drop, bool enableDefaultLog = true)
+        public FirewallConfiguration(FirewallName name, CLIOptions options, EAction defaultAction = EAction.Drop)
         {
             this.name = name;
             this.defaultAction = defaultAction;
-            this.enableDefaultLog = enableDefaultLog;
             this.options = options;
             AddDefaultRules();
         }
@@ -110,7 +108,7 @@ namespace zobo.Configuration.Output
             var sb = new StringBuilder();
 
             sb.AppendLine($"{prefix} default-action {defaultAction.ToString().ToLower()}");
-            if (enableDefaultLog)
+            if (! options.DisableDefaultLogs)
             {
                 sb.AppendLine($"{prefix} enable-default-log");
             }
