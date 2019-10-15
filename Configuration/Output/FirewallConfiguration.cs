@@ -108,7 +108,7 @@ namespace zobo.Configuration.Output
             var sb = new StringBuilder();
 
             sb.AppendLine($"{prefix} default-action {defaultAction.ToString().ToLower()}");
-            if (! options.DisableDefaultLogs)
+            if (! options.DisableDefaultLogs && defaultAction != EAction.Accept )
             {
                 sb.AppendLine($"{prefix} enable-default-log");
             }

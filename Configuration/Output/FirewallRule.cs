@@ -76,7 +76,7 @@ namespace zobo.Configuration.Output
         UDP,
         TCP_UDP,
         ICMP,
-        All
+        ALL
     }
 
     public abstract class NetworkTarget
