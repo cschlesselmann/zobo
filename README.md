@@ -4,17 +4,12 @@ ZoBo helps you bootstrap your VyOS Zone-Based Firewall through an easy config fi
 
 ## Running
 
-### Docker
-```sh
-docker run --rm -it -v $(pwd)/zones.yaml:/app/zones.yaml ebrithil/zobo
-```
-
 ### From Source
 
 *Note*: You need to have the [Dotnet Core SDK](https://dotnet.microsoft.com/download) installed!
 
 ```sh
-git clone https://github.com/Ebrithil95/zobo.git
+git clone https://github.com/cschlesselmann/zobo.git
 cd zobo
 dotnet restore
 dotnet run
